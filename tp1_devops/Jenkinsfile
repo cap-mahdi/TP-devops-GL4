@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven-3.9.9'
+    }
+
+    stages {
+        stage('Checkout Git') {
+            steps {
+               git branch: 'main', url: 'https://github.com/cap-mahdi/basic-maven-project'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+
+    }
+}
