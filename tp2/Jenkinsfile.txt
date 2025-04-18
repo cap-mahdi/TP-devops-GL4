@@ -83,7 +83,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
                     sh "docker tag ${IMAGE_NAME}:${VERSION}-${BUILD_DATE} ${IMAGE_NAME}:latest"
-                    sh "docker push ${IMAGE_NAME}:${VERSION}-${BUILD_DATE}"
+                    sh "docker push ${IMAGE_NAME}:${VERSION}-${BUILD_DATE}:latest"
                 }
             }
         }
