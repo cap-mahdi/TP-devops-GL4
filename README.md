@@ -1,2 +1,2 @@
 "# basic-maven-project" 
-change 5
+change 6
